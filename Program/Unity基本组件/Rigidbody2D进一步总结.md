@@ -1,0 +1,6 @@
+# Rigidbody2D进一步总结
+
+1. 如果打开或关闭Simulate开关，会让其它碰撞体组件和关节组件生效或失效。在运行中，这样操作会比关闭/打开它的Collider2D、Joint2D组件效率高。
+2. 如果一个Rigidbody2D不需要移动，也不需要接收力的作用，但是需要接受碰撞，那么需要将Rigidbody2D设置为Static，并附加Collider2D组件。
+3. 如果一个Rigidbody2D需要移动，并且接受完全的物理模拟，包括重力、碰撞、施加力等，那么需要将Rigidbody2D设置成Dynamic，并附加Collider2D组件。
+4. 如果一个Rigidbody2D需要移动，但不接受力的作用，那么需要将它设置成Kinematic；如果它附加了Collider2D组件，在Rigidbody的Use Full Kinematic Contacts属性为false（不勾选）时，它只会与Dynamic的Rigidbody2D碰撞，而不会与Kinematic的或者Static的Rigidbody2D发生碰撞；如果需要它能与受所有类型的Rigidbody2D碰撞，那就设置Use Full Kinematic Contacts为true（勾选）
